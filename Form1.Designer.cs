@@ -28,7 +28,7 @@
             this.btnPadrao = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCientifica = new System.Windows.Forms.ToolStripMenuItem();
             this.historicoOperacoes = new System.Windows.Forms.TextBox();
-            this.entradaNumeros = new System.Windows.Forms.TextBox();
+            this.inputNumeros = new System.Windows.Forms.TextBox();
             this.btnPercentagem = new System.Windows.Forms.Button();
             this.btnLimparAtual = new System.Windows.Forms.Button();
             this.btnLimparTudo = new System.Windows.Forms.Button();
@@ -53,6 +53,7 @@
             this.btnSomar = new System.Windows.Forms.Button();
             this.btnSubtrair = new System.Windows.Forms.Button();
             this.btnMultiplicar = new System.Windows.Forms.Button();
+            this.historicoGeral = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             this.menuType});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(340, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(510, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,7 +87,7 @@
             this.btnPadrao.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnPadrao.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnPadrao.Name = "btnPadrao";
-            this.btnPadrao.Size = new System.Drawing.Size(180, 22);
+            this.btnPadrao.Size = new System.Drawing.Size(123, 22);
             this.btnPadrao.Text = "Padrão";
             // 
             // btnCientifica
@@ -95,7 +96,7 @@
             this.btnCientifica.Font = new System.Drawing.Font("Calibri", 9F);
             this.btnCientifica.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCientifica.Name = "btnCientifica";
-            this.btnCientifica.Size = new System.Drawing.Size(180, 22);
+            this.btnCientifica.Size = new System.Drawing.Size(123, 22);
             this.btnCientifica.Text = "Científica";
             // 
             // historicoOperacoes
@@ -106,24 +107,23 @@
             this.historicoOperacoes.Location = new System.Drawing.Point(12, 27);
             this.historicoOperacoes.Name = "historicoOperacoes";
             this.historicoOperacoes.ReadOnly = true;
-            this.historicoOperacoes.Size = new System.Drawing.Size(315, 27);
+            this.historicoOperacoes.Size = new System.Drawing.Size(317, 27);
             this.historicoOperacoes.TabIndex = 1;
-            this.historicoOperacoes.Text = "TESTE";
             this.historicoOperacoes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.historicoOperacoes.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // entradaNumeros
+            // inputNumeros
             // 
-            this.entradaNumeros.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.entradaNumeros.Font = new System.Drawing.Font("Calibri Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entradaNumeros.ForeColor = System.Drawing.SystemColors.Window;
-            this.entradaNumeros.Location = new System.Drawing.Point(12, 51);
-            this.entradaNumeros.Margin = new System.Windows.Forms.Padding(0);
-            this.entradaNumeros.Name = "entradaNumeros";
-            this.entradaNumeros.Size = new System.Drawing.Size(315, 40);
-            this.entradaNumeros.TabIndex = 2;
-            this.entradaNumeros.Text = "TESTE";
-            this.entradaNumeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.inputNumeros.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.inputNumeros.Font = new System.Drawing.Font("Calibri Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputNumeros.ForeColor = System.Drawing.SystemColors.Window;
+            this.inputNumeros.Location = new System.Drawing.Point(12, 51);
+            this.inputNumeros.Margin = new System.Windows.Forms.Padding(0);
+            this.inputNumeros.Name = "inputNumeros";
+            this.inputNumeros.Size = new System.Drawing.Size(317, 40);
+            this.inputNumeros.TabIndex = 2;
+            this.inputNumeros.Text = "0";
+            this.inputNumeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnPercentagem
             // 
@@ -160,6 +160,7 @@
             this.btnLimparTudo.TabIndex = 6;
             this.btnLimparTudo.Text = "C";
             this.btnLimparTudo.UseVisualStyleBackColor = false;
+            this.btnLimparTudo.Click += new System.EventHandler(this.btnLimparTudo_Click);
             // 
             // btnRaizQuad
             // 
@@ -208,6 +209,7 @@
             this.btnDividir.TabIndex = 10;
             this.btnDividir.Text = "÷";
             this.btnDividir.UseVisualStyleBackColor = false;
+            this.btnDividir.Click += new System.EventHandler(this.btnDividir_Click);
             // 
             // btnInverterFracao
             // 
@@ -232,6 +234,7 @@
             this.btnQuatro.TabIndex = 12;
             this.btnQuatro.Text = "4";
             this.btnQuatro.UseVisualStyleBackColor = false;
+            this.btnQuatro.Click += new System.EventHandler(this.btnQuatro_Click);
             // 
             // btnSete
             // 
@@ -244,6 +247,7 @@
             this.btnSete.TabIndex = 11;
             this.btnSete.Text = "7";
             this.btnSete.UseVisualStyleBackColor = false;
+            this.btnSete.Click += new System.EventHandler(this.btnSete_Click);
             // 
             // btnNegar
             // 
@@ -268,6 +272,7 @@
             this.btnUm.TabIndex = 13;
             this.btnUm.Text = "1";
             this.btnUm.UseVisualStyleBackColor = false;
+            this.btnUm.Click += new System.EventHandler(this.btnUm_Click);
             // 
             // btnZero
             // 
@@ -280,6 +285,7 @@
             this.btnZero.TabIndex = 18;
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = false;
+            this.btnZero.Click += new System.EventHandler(this.btnZero_Click);
             // 
             // btnDois
             // 
@@ -292,6 +298,7 @@
             this.btnDois.TabIndex = 17;
             this.btnDois.Text = "2";
             this.btnDois.UseVisualStyleBackColor = false;
+            this.btnDois.Click += new System.EventHandler(this.btnDois_Click);
             // 
             // btnCinco
             // 
@@ -304,6 +311,7 @@
             this.btnCinco.TabIndex = 16;
             this.btnCinco.Text = "5";
             this.btnCinco.UseVisualStyleBackColor = false;
+            this.btnCinco.Click += new System.EventHandler(this.btnCinco_Click);
             // 
             // btnOito
             // 
@@ -316,6 +324,7 @@
             this.btnOito.TabIndex = 15;
             this.btnOito.Text = "8";
             this.btnOito.UseVisualStyleBackColor = false;
+            this.btnOito.Click += new System.EventHandler(this.btnOito_Click);
             // 
             // btnVirgula
             // 
@@ -328,6 +337,7 @@
             this.btnVirgula.TabIndex = 22;
             this.btnVirgula.Text = ",";
             this.btnVirgula.UseVisualStyleBackColor = false;
+            this.btnVirgula.Click += new System.EventHandler(this.btnVirgula_Click);
             // 
             // btnTres
             // 
@@ -340,6 +350,7 @@
             this.btnTres.TabIndex = 21;
             this.btnTres.Text = "3";
             this.btnTres.UseVisualStyleBackColor = false;
+            this.btnTres.Click += new System.EventHandler(this.btnTres_Click);
             // 
             // btnSeis
             // 
@@ -352,6 +363,7 @@
             this.btnSeis.TabIndex = 20;
             this.btnSeis.Text = "6";
             this.btnSeis.UseVisualStyleBackColor = false;
+            this.btnSeis.Click += new System.EventHandler(this.btnSeis_Click);
             // 
             // btnNove
             // 
@@ -364,6 +376,7 @@
             this.btnNove.TabIndex = 19;
             this.btnNove.Text = "9";
             this.btnNove.UseVisualStyleBackColor = false;
+            this.btnNove.Click += new System.EventHandler(this.btnNove_Click);
             // 
             // btnIgual
             // 
@@ -376,6 +389,7 @@
             this.btnIgual.TabIndex = 26;
             this.btnIgual.Text = "=";
             this.btnIgual.UseVisualStyleBackColor = false;
+            this.btnIgual.Click += new System.EventHandler(this.btnIgual_Click);
             // 
             // btnSomar
             // 
@@ -388,6 +402,7 @@
             this.btnSomar.TabIndex = 25;
             this.btnSomar.Text = "+";
             this.btnSomar.UseVisualStyleBackColor = false;
+            this.btnSomar.Click += new System.EventHandler(this.btnSomar_Click);
             // 
             // btnSubtrair
             // 
@@ -400,6 +415,7 @@
             this.btnSubtrair.TabIndex = 24;
             this.btnSubtrair.Text = "-";
             this.btnSubtrair.UseVisualStyleBackColor = false;
+            this.btnSubtrair.Click += new System.EventHandler(this.btnSubtrair_Click);
             // 
             // btnMultiplicar
             // 
@@ -412,13 +428,28 @@
             this.btnMultiplicar.TabIndex = 23;
             this.btnMultiplicar.Text = "x";
             this.btnMultiplicar.UseVisualStyleBackColor = false;
+            this.btnMultiplicar.Click += new System.EventHandler(this.btnMultiplicar_Click);
+            // 
+            // historicoGeral
+            // 
+            this.historicoGeral.BackColor = System.Drawing.Color.Black;
+            this.historicoGeral.ForeColor = System.Drawing.Color.White;
+            this.historicoGeral.Location = new System.Drawing.Point(336, 27);
+            this.historicoGeral.Multiline = true;
+            this.historicoGeral.Name = "historicoGeral";
+            this.historicoGeral.Size = new System.Drawing.Size(168, 407);
+            this.historicoGeral.TabIndex = 27;
+            this.historicoGeral.Text = "TESTE";
+            this.historicoGeral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.historicoGeral.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(340, 442);
+            this.ClientSize = new System.Drawing.Size(510, 442);
+            this.Controls.Add(this.historicoGeral);
             this.Controls.Add(this.btnIgual);
             this.Controls.Add(this.btnSomar);
             this.Controls.Add(this.btnSubtrair);
@@ -443,7 +474,7 @@
             this.Controls.Add(this.btnRaizQuad);
             this.Controls.Add(this.btnLimparAtual);
             this.Controls.Add(this.btnPercentagem);
-            this.Controls.Add(this.entradaNumeros);
+            this.Controls.Add(this.inputNumeros);
             this.Controls.Add(this.historicoOperacoes);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -463,7 +494,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnPadrao;
         private System.Windows.Forms.ToolStripMenuItem btnCientifica;
         private System.Windows.Forms.TextBox historicoOperacoes;
-        private System.Windows.Forms.TextBox entradaNumeros;
+        private System.Windows.Forms.TextBox inputNumeros;
         private System.Windows.Forms.Button btnPercentagem;
         private System.Windows.Forms.Button btnLimparAtual;
         private System.Windows.Forms.Button btnLimparTudo;
@@ -488,6 +519,7 @@
         private System.Windows.Forms.Button btnSomar;
         private System.Windows.Forms.Button btnSubtrair;
         private System.Windows.Forms.Button btnMultiplicar;
+        private System.Windows.Forms.TextBox historicoGeral;
     }
 }
 
