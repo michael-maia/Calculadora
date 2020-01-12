@@ -16,23 +16,34 @@ namespace Calculadora {
          */
 
         private void btnDividir_Click(object sender,EventArgs e) {
-            calc.Dividir(float.Parse(inputNumeros.Text));
+            string operacao = calc.Dividir(float.Parse(inputNumeros.Text));
+            historicoOperacoes.Text += operacao;
         }       
 
         private void btnSomar_Click(object sender,EventArgs e) {
-            calc.Somar(float.Parse(inputNumeros.Text));           
+            string operacao = calc.Somar(float.Parse(inputNumeros.Text));
+            historicoOperacoes.Text += operacao;
+    
         }
 
         private void btnMultiplicar_Click(object sender,EventArgs e) {
-            calc.Multiplicar(float.Parse(inputNumeros.Text));
+            string operacao = calc.Multiplicar(float.Parse(inputNumeros.Text));
+            historicoOperacoes.Text += operacao;
         }
 
         private void btnSubtrair_Click(object sender,EventArgs e) {
-            calc.Subtrair(float.Parse(inputNumeros.Text));
+            string operacao = calc.Subtrair(float.Parse(inputNumeros.Text));
+            historicoOperacoes.Text += operacao;
+        }
+
+        private void btnLimparAtual_Click(object sender,EventArgs e) {
+            inputNumeros.Text = "";
         }
 
         private void btnLimparTudo_Click(object sender,EventArgs e) {
             calc.LimparTudo();
+            historicoOperacoes.Text = "";
+            inputNumeros.Text = "";
         }
 
         private void btnUm_Click(object sender,EventArgs e) {
@@ -76,23 +87,25 @@ namespace Calculadora {
         }
 
         private void btnVirgula_Click(object sender,EventArgs e) {
-            inputNumeros.Text += ".";
+            inputNumeros.Text += ",";
         }
 
         private void btnIgual_Click(object sender,EventArgs e) {
             inputNumeros.Text = calc.MostrarResultado();
         }
 
+        private void historicoOperacoes_TextChanged(object sender,EventArgs e) {
+
+        }
+
+        private void historicoGeral_TextChanged(object sender,EventArgs e) {
+
+        }
+
         private void tipoToolStripMenuItem_Click(object sender,EventArgs e) {
 
         }
 
-        private void textBox1_TextChanged(object sender,EventArgs e) {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender,EventArgs e) {
-
-        }
+        
     }
 }

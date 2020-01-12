@@ -102,25 +102,28 @@
             // historicoOperacoes
             // 
             this.historicoOperacoes.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.historicoOperacoes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.historicoOperacoes.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.historicoOperacoes.ForeColor = System.Drawing.SystemColors.Window;
             this.historicoOperacoes.Location = new System.Drawing.Point(12, 27);
             this.historicoOperacoes.Name = "historicoOperacoes";
             this.historicoOperacoes.ReadOnly = true;
-            this.historicoOperacoes.Size = new System.Drawing.Size(317, 27);
+            this.historicoOperacoes.Size = new System.Drawing.Size(317, 20);
             this.historicoOperacoes.TabIndex = 1;
             this.historicoOperacoes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.historicoOperacoes.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.historicoOperacoes.TextChanged += new System.EventHandler(this.historicoOperacoes_TextChanged);
             // 
             // inputNumeros
             // 
+            this.inputNumeros.AcceptsTab = true;
             this.inputNumeros.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.inputNumeros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputNumeros.Font = new System.Drawing.Font("Calibri Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputNumeros.ForeColor = System.Drawing.SystemColors.Window;
             this.inputNumeros.Location = new System.Drawing.Point(12, 51);
             this.inputNumeros.Margin = new System.Windows.Forms.Padding(0);
             this.inputNumeros.Name = "inputNumeros";
-            this.inputNumeros.Size = new System.Drawing.Size(317, 40);
+            this.inputNumeros.Size = new System.Drawing.Size(317, 33);
             this.inputNumeros.TabIndex = 2;
             this.inputNumeros.Text = "0";
             this.inputNumeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -148,6 +151,7 @@
             this.btnLimparAtual.TabIndex = 4;
             this.btnLimparAtual.Text = "CE";
             this.btnLimparAtual.UseVisualStyleBackColor = false;
+            this.btnLimparAtual.Click += new System.EventHandler(this.btnLimparAtual_Click);
             // 
             // btnLimparTudo
             // 
@@ -225,7 +229,7 @@
             // 
             // btnQuatro
             // 
-            this.btnQuatro.BackColor = System.Drawing.Color.Black;
+            this.btnQuatro.BackColor = System.Drawing.Color.Gray;
             this.btnQuatro.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuatro.ForeColor = System.Drawing.Color.White;
             this.btnQuatro.Location = new System.Drawing.Point(12, 266);
@@ -238,7 +242,7 @@
             // 
             // btnSete
             // 
-            this.btnSete.BackColor = System.Drawing.Color.Black;
+            this.btnSete.BackColor = System.Drawing.Color.Gray;
             this.btnSete.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSete.ForeColor = System.Drawing.Color.White;
             this.btnSete.Location = new System.Drawing.Point(12, 209);
@@ -263,7 +267,7 @@
             // 
             // btnUm
             // 
-            this.btnUm.BackColor = System.Drawing.Color.Black;
+            this.btnUm.BackColor = System.Drawing.Color.Gray;
             this.btnUm.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUm.ForeColor = System.Drawing.Color.White;
             this.btnUm.Location = new System.Drawing.Point(12, 323);
@@ -276,7 +280,7 @@
             // 
             // btnZero
             // 
-            this.btnZero.BackColor = System.Drawing.Color.Black;
+            this.btnZero.BackColor = System.Drawing.Color.Gray;
             this.btnZero.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZero.ForeColor = System.Drawing.Color.White;
             this.btnZero.Location = new System.Drawing.Point(93, 380);
@@ -289,7 +293,7 @@
             // 
             // btnDois
             // 
-            this.btnDois.BackColor = System.Drawing.Color.Black;
+            this.btnDois.BackColor = System.Drawing.Color.Gray;
             this.btnDois.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDois.ForeColor = System.Drawing.Color.White;
             this.btnDois.Location = new System.Drawing.Point(93, 323);
@@ -302,7 +306,7 @@
             // 
             // btnCinco
             // 
-            this.btnCinco.BackColor = System.Drawing.Color.Black;
+            this.btnCinco.BackColor = System.Drawing.Color.Gray;
             this.btnCinco.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCinco.ForeColor = System.Drawing.Color.White;
             this.btnCinco.Location = new System.Drawing.Point(93, 266);
@@ -315,7 +319,7 @@
             // 
             // btnOito
             // 
-            this.btnOito.BackColor = System.Drawing.Color.Black;
+            this.btnOito.BackColor = System.Drawing.Color.Gray;
             this.btnOito.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOito.ForeColor = System.Drawing.Color.White;
             this.btnOito.Location = new System.Drawing.Point(93, 209);
@@ -341,7 +345,7 @@
             // 
             // btnTres
             // 
-            this.btnTres.BackColor = System.Drawing.Color.Black;
+            this.btnTres.BackColor = System.Drawing.Color.Gray;
             this.btnTres.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTres.ForeColor = System.Drawing.Color.White;
             this.btnTres.Location = new System.Drawing.Point(174, 323);
@@ -354,7 +358,7 @@
             // 
             // btnSeis
             // 
-            this.btnSeis.BackColor = System.Drawing.Color.Black;
+            this.btnSeis.BackColor = System.Drawing.Color.Gray;
             this.btnSeis.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeis.ForeColor = System.Drawing.Color.White;
             this.btnSeis.Location = new System.Drawing.Point(174, 266);
@@ -367,7 +371,7 @@
             // 
             // btnNove
             // 
-            this.btnNove.BackColor = System.Drawing.Color.Black;
+            this.btnNove.BackColor = System.Drawing.Color.Gray;
             this.btnNove.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNove.ForeColor = System.Drawing.Color.White;
             this.btnNove.Location = new System.Drawing.Point(174, 209);
@@ -441,7 +445,7 @@
             this.historicoGeral.TabIndex = 27;
             this.historicoGeral.Text = "TESTE";
             this.historicoGeral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.historicoGeral.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.historicoGeral.TextChanged += new System.EventHandler(this.historicoGeral_TextChanged);
             // 
             // calculadora
             // 

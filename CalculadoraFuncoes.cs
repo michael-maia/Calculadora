@@ -9,22 +9,30 @@ namespace Calculadora {
     public class CalculadoraFuncoes {
         //Atributos
         private float somatorio = 0;/*, input;*/
-        
+
         //Funcoes dos botoes
-        public float Somar(float input) {
-            return this.somatorio += input;
+        public string Somar(float input) {
+            this.somatorio += input;
+            string resultado = Convert.ToString(input);
+            return String.Format("{0} + ",resultado);
         }
 
-        public void Subtrair(float input) {
+        public string Subtrair(float input) {
             this.somatorio -= input;
+            string resultado = Convert.ToString(input);
+            return String.Format("{0} - ",resultado);
         }
 
-        public void Multiplicar(float input) {
+        public string Multiplicar(float input) {
             this.somatorio *= input;
+            string resultado = Convert.ToString(input);
+            return String.Format("{0} x ",resultado);
         }
 
-        public float Dividir(float input) {
-            return this.somatorio /= input;
+        public string Dividir(float input) {
+            this.somatorio /= input;
+            string resultado = Convert.ToString(input);
+            return String.Format("{0} ÷ ",resultado);
         }
 
         public void LimparTudo() {
