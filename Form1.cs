@@ -1,29 +1,32 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Calculadora {
     public partial class calculadora : Form {
-        CalculadoraFuncoes calc = new CalculadoraFuncoes();        
-        public calculadora() {
-            InitializeComponent();            
-        }
-
         /*
-         * TO-DO:
-         * - Fazer com que o inputNumeros só mostre o número que vai ser incluído na operação e não o resultado
-         * - historicoOperacoes deve mostrar os últimos números do inputNumeros junto com a função matemática
-         *  usada
+         * TO-DO: Olhar no ToDo App da Microsoft         
          */
+        // Linkando a classe onde estão as funções matemáticas
+        CalculadoraFuncoes calc = new CalculadoraFuncoes(); 
+
+        public calculadora() {
+            InitializeComponent();
+            inputNumeros.KeyPress += (sender,e) => e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
+        }        
+
+        private void calculadora_Load(object sender,EventArgs e) {
+
+        }
 
         private void btnDividir_Click(object sender,EventArgs e) {
             string operacao = calc.Dividir(float.Parse(inputNumeros.Text));
             historicoOperacoes.Text += operacao;
-        }       
+        }
 
-        private void btnSomar_Click(object sender,EventArgs e) {
+        private void btnSomar_Click(object sender,EventArgs e) {            
             string operacao = calc.Somar(float.Parse(inputNumeros.Text));
-            historicoOperacoes.Text += operacao;
-    
+            historicoOperacoes.Text += operacao;    
         }
 
         private void btnMultiplicar_Click(object sender,EventArgs e) {
@@ -106,6 +109,43 @@ namespace Calculadora {
 
         }
 
-        
+        private void inputNumeros_TextChanged(object sender,EventArgs e) {
+
+        }
+
+        // ------------------------------------------------------------------------------------------
+        // Função que altera o que a tecla do teclado vai fazer ao ser pressionada
+        protected override bool ProcessCmdKey(ref Message msg,Keys keyData) {
+            if(keyData == Keys.Divide) {
+                 string operacao = calc.Dividir(float.Parse(inputNumeros.Text));
+                 historicoOperacoes.Text += operacao;
+                 return true;
+             }
+
+             if(keyData == Keys.Subtract) {
+                 string operacao = calc.Subtrair(float.Parse(inputNumeros.Text));
+                 historicoOperacoes.Text += operacao;
+                 return true;
+             }
+
+             if(keyData == Keys.Enter) {
+                 inputNumeros.Text = calc.MostrarResultado();
+                 return true;
+             }
+
+             if(keyData == Keys.Add) {
+                 string operacao = calc.Somar(float.Parse(inputNumeros.Text));
+                 historicoOperacoes.Text += operacao;
+                 return true;
+             }
+
+             if(keyData == Keys.Multiply) {
+                 string operacao = calc.Multiplicar(float.Parse(inputNumeros.Text));
+                 historicoOperacoes.Text += operacao;
+                 return true;
+             }
+             
+             return base.ProcessCmdKey(ref msg,keyData);
+        }
     }
 }

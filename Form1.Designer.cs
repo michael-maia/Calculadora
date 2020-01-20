@@ -124,9 +124,10 @@
             this.inputNumeros.Margin = new System.Windows.Forms.Padding(0);
             this.inputNumeros.Name = "inputNumeros";
             this.inputNumeros.Size = new System.Drawing.Size(317, 33);
-            this.inputNumeros.TabIndex = 2;
+            this.inputNumeros.TabIndex = 0;
             this.inputNumeros.Text = "0";
             this.inputNumeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.inputNumeros.TextChanged += new System.EventHandler(this.inputNumeros_TextChanged);
             // 
             // btnPercentagem
             // 
@@ -481,6 +482,7 @@
             this.Controls.Add(this.inputNumeros);
             this.Controls.Add(this.historicoOperacoes);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "calculadora";
             this.Text = "Calculadora";
