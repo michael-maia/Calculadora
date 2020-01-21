@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Calculadora {
     public class CalculadoraFuncoes {
         //Atributos
-        private float somatorio = 0;/*, input;*/
+        private float somatorio = 0;
 
         //Funcoes dos botoes
         public string Somar(float input) {
@@ -41,6 +41,12 @@ namespace Calculadora {
 
         public string MostrarResultado() {
             return Convert.ToString(this.somatorio);
+        }
+
+        public string Negar(float input) {
+            input *= -1;
+            string resultado = Convert.ToString(input);
+            return resultado;
         }
     }
 }

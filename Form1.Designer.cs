@@ -27,8 +27,8 @@
             this.menuType = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPadrao = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCientifica = new System.Windows.Forms.ToolStripMenuItem();
-            this.historicoOperacoes = new System.Windows.Forms.TextBox();
-            this.inputNumeros = new System.Windows.Forms.TextBox();
+            this.txtHistOperacoes = new System.Windows.Forms.TextBox();
+            this.txtInputNumeros = new System.Windows.Forms.TextBox();
             this.btnPercentagem = new System.Windows.Forms.Button();
             this.btnLimparAtual = new System.Windows.Forms.Button();
             this.btnLimparTudo = new System.Windows.Forms.Button();
@@ -53,7 +53,6 @@
             this.btnSomar = new System.Windows.Forms.Button();
             this.btnSubtrair = new System.Windows.Forms.Button();
             this.btnMultiplicar = new System.Windows.Forms.Button();
-            this.historicoGeral = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +64,7 @@
             this.menuType});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(510, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(344, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,42 +98,44 @@
             this.btnCientifica.Size = new System.Drawing.Size(123, 22);
             this.btnCientifica.Text = "Científica";
             // 
-            // historicoOperacoes
+            // txtHistOperacoes
             // 
-            this.historicoOperacoes.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.historicoOperacoes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.historicoOperacoes.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.historicoOperacoes.ForeColor = System.Drawing.SystemColors.Window;
-            this.historicoOperacoes.Location = new System.Drawing.Point(12, 27);
-            this.historicoOperacoes.Name = "historicoOperacoes";
-            this.historicoOperacoes.ReadOnly = true;
-            this.historicoOperacoes.Size = new System.Drawing.Size(317, 20);
-            this.historicoOperacoes.TabIndex = 1;
-            this.historicoOperacoes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.historicoOperacoes.TextChanged += new System.EventHandler(this.historicoOperacoes_TextChanged);
+            this.txtHistOperacoes.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtHistOperacoes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtHistOperacoes.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHistOperacoes.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtHistOperacoes.Location = new System.Drawing.Point(12, 27);
+            this.txtHistOperacoes.Name = "txtHistOperacoes";
+            this.txtHistOperacoes.ReadOnly = true;
+            this.txtHistOperacoes.Size = new System.Drawing.Size(317, 20);
+            this.txtHistOperacoes.TabIndex = 1;
+            this.txtHistOperacoes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtHistOperacoes.TextChanged += new System.EventHandler(this.txtHistOperacoes_TextChanged);
             // 
-            // inputNumeros
+            // txtInputNumeros
             // 
-            this.inputNumeros.AcceptsTab = true;
-            this.inputNumeros.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.inputNumeros.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.inputNumeros.Font = new System.Drawing.Font("Calibri Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputNumeros.ForeColor = System.Drawing.SystemColors.Window;
-            this.inputNumeros.Location = new System.Drawing.Point(12, 51);
-            this.inputNumeros.Margin = new System.Windows.Forms.Padding(0);
-            this.inputNumeros.Name = "inputNumeros";
-            this.inputNumeros.Size = new System.Drawing.Size(317, 33);
-            this.inputNumeros.TabIndex = 0;
-            this.inputNumeros.Text = "0";
-            this.inputNumeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.inputNumeros.TextChanged += new System.EventHandler(this.inputNumeros_TextChanged);
+            this.txtInputNumeros.AcceptsTab = true;
+            this.txtInputNumeros.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.txtInputNumeros.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtInputNumeros.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtInputNumeros.Font = new System.Drawing.Font("Calibri Light", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInputNumeros.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtInputNumeros.Location = new System.Drawing.Point(12, 51);
+            this.txtInputNumeros.Margin = new System.Windows.Forms.Padding(0);
+            this.txtInputNumeros.Name = "txtInputNumeros";
+            this.txtInputNumeros.ReadOnly = true;
+            this.txtInputNumeros.Size = new System.Drawing.Size(317, 33);
+            this.txtInputNumeros.TabIndex = 0;
+            this.txtInputNumeros.Text = "0";
+            this.txtInputNumeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtInputNumeros.TextChanged += new System.EventHandler(this.txtInputNumeros_TextChanged);
             // 
             // btnPercentagem
             // 
             this.btnPercentagem.BackColor = System.Drawing.Color.Black;
             this.btnPercentagem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPercentagem.ForeColor = System.Drawing.Color.White;
-            this.btnPercentagem.Location = new System.Drawing.Point(12, 94);
+            this.btnPercentagem.Location = new System.Drawing.Point(12, 95);
             this.btnPercentagem.Name = "btnPercentagem";
             this.btnPercentagem.Size = new System.Drawing.Size(75, 54);
             this.btnPercentagem.TabIndex = 3;
@@ -146,7 +147,7 @@
             this.btnLimparAtual.BackColor = System.Drawing.Color.Black;
             this.btnLimparAtual.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparAtual.ForeColor = System.Drawing.Color.White;
-            this.btnLimparAtual.Location = new System.Drawing.Point(12, 151);
+            this.btnLimparAtual.Location = new System.Drawing.Point(93, 95);
             this.btnLimparAtual.Name = "btnLimparAtual";
             this.btnLimparAtual.Size = new System.Drawing.Size(75, 54);
             this.btnLimparAtual.TabIndex = 4;
@@ -159,7 +160,7 @@
             this.btnLimparTudo.BackColor = System.Drawing.Color.Black;
             this.btnLimparTudo.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparTudo.ForeColor = System.Drawing.Color.White;
-            this.btnLimparTudo.Location = new System.Drawing.Point(93, 151);
+            this.btnLimparTudo.Location = new System.Drawing.Point(174, 94);
             this.btnLimparTudo.Name = "btnLimparTudo";
             this.btnLimparTudo.Size = new System.Drawing.Size(75, 54);
             this.btnLimparTudo.TabIndex = 6;
@@ -172,7 +173,7 @@
             this.btnRaizQuad.BackColor = System.Drawing.Color.Black;
             this.btnRaizQuad.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRaizQuad.ForeColor = System.Drawing.Color.White;
-            this.btnRaizQuad.Location = new System.Drawing.Point(93, 94);
+            this.btnRaizQuad.Location = new System.Drawing.Point(174, 151);
             this.btnRaizQuad.Name = "btnRaizQuad";
             this.btnRaizQuad.Size = new System.Drawing.Size(75, 54);
             this.btnRaizQuad.TabIndex = 5;
@@ -184,7 +185,7 @@
             this.button5.BackColor = System.Drawing.Color.Black;
             this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(174, 151);
+            this.button5.Location = new System.Drawing.Point(255, 94);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 54);
             this.button5.TabIndex = 8;
@@ -196,7 +197,7 @@
             this.btnAoQuadrado.BackColor = System.Drawing.Color.Black;
             this.btnAoQuadrado.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAoQuadrado.ForeColor = System.Drawing.Color.White;
-            this.btnAoQuadrado.Location = new System.Drawing.Point(174, 94);
+            this.btnAoQuadrado.Location = new System.Drawing.Point(93, 151);
             this.btnAoQuadrado.Name = "btnAoQuadrado";
             this.btnAoQuadrado.Size = new System.Drawing.Size(75, 54);
             this.btnAoQuadrado.TabIndex = 7;
@@ -221,7 +222,7 @@
             this.btnInverterFracao.BackColor = System.Drawing.Color.Black;
             this.btnInverterFracao.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInverterFracao.ForeColor = System.Drawing.Color.White;
-            this.btnInverterFracao.Location = new System.Drawing.Point(255, 94);
+            this.btnInverterFracao.Location = new System.Drawing.Point(12, 151);
             this.btnInverterFracao.Name = "btnInverterFracao";
             this.btnInverterFracao.Size = new System.Drawing.Size(75, 54);
             this.btnInverterFracao.TabIndex = 9;
@@ -265,6 +266,7 @@
             this.btnNegar.TabIndex = 14;
             this.btnNegar.Text = "+/-";
             this.btnNegar.UseVisualStyleBackColor = false;
+            this.btnNegar.Click += new System.EventHandler(this.btnNegar_Click);
             // 
             // btnUm
             // 
@@ -412,7 +414,7 @@
             // btnSubtrair
             // 
             this.btnSubtrair.BackColor = System.Drawing.Color.Black;
-            this.btnSubtrair.Font = new System.Drawing.Font("Calibri", 14F);
+            this.btnSubtrair.Font = new System.Drawing.Font("Calibri", 25F);
             this.btnSubtrair.ForeColor = System.Drawing.Color.White;
             this.btnSubtrair.Location = new System.Drawing.Point(255, 266);
             this.btnSubtrair.Name = "btnSubtrair";
@@ -435,26 +437,12 @@
             this.btnMultiplicar.UseVisualStyleBackColor = false;
             this.btnMultiplicar.Click += new System.EventHandler(this.btnMultiplicar_Click);
             // 
-            // historicoGeral
-            // 
-            this.historicoGeral.BackColor = System.Drawing.Color.Black;
-            this.historicoGeral.ForeColor = System.Drawing.Color.White;
-            this.historicoGeral.Location = new System.Drawing.Point(336, 27);
-            this.historicoGeral.Multiline = true;
-            this.historicoGeral.Name = "historicoGeral";
-            this.historicoGeral.Size = new System.Drawing.Size(168, 407);
-            this.historicoGeral.TabIndex = 27;
-            this.historicoGeral.Text = "TESTE";
-            this.historicoGeral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.historicoGeral.TextChanged += new System.EventHandler(this.historicoGeral_TextChanged);
-            // 
             // calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(510, 442);
-            this.Controls.Add(this.historicoGeral);
+            this.ClientSize = new System.Drawing.Size(344, 442);
             this.Controls.Add(this.btnIgual);
             this.Controls.Add(this.btnSomar);
             this.Controls.Add(this.btnSubtrair);
@@ -479,8 +467,8 @@
             this.Controls.Add(this.btnRaizQuad);
             this.Controls.Add(this.btnLimparAtual);
             this.Controls.Add(this.btnPercentagem);
-            this.Controls.Add(this.inputNumeros);
-            this.Controls.Add(this.historicoOperacoes);
+            this.Controls.Add(this.txtInputNumeros);
+            this.Controls.Add(this.txtHistOperacoes);
             this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -499,8 +487,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuType;
         private System.Windows.Forms.ToolStripMenuItem btnPadrao;
         private System.Windows.Forms.ToolStripMenuItem btnCientifica;
-        private System.Windows.Forms.TextBox historicoOperacoes;
-        private System.Windows.Forms.TextBox inputNumeros;
+        private System.Windows.Forms.TextBox txtHistOperacoes;
+        private System.Windows.Forms.TextBox txtInputNumeros;
         private System.Windows.Forms.Button btnPercentagem;
         private System.Windows.Forms.Button btnLimparAtual;
         private System.Windows.Forms.Button btnLimparTudo;
@@ -525,7 +513,6 @@
         private System.Windows.Forms.Button btnSomar;
         private System.Windows.Forms.Button btnSubtrair;
         private System.Windows.Forms.Button btnMultiplicar;
-        private System.Windows.Forms.TextBox historicoGeral;
     }
 }
 
