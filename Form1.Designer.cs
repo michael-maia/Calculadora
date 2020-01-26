@@ -123,7 +123,6 @@
             this.txtInputNumeros.Location = new System.Drawing.Point(12, 51);
             this.txtInputNumeros.Margin = new System.Windows.Forms.Padding(0);
             this.txtInputNumeros.Name = "txtInputNumeros";
-            this.txtInputNumeros.ReadOnly = true;
             this.txtInputNumeros.Size = new System.Drawing.Size(317, 33);
             this.txtInputNumeros.TabIndex = 0;
             this.txtInputNumeros.Text = "0";

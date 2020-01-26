@@ -8,8 +8,7 @@ namespace Calculadora {
          */
 
         // Linkando a classe onde estão as funções matemáticas
-        CalculadoraFuncoes calc = new CalculadoraFuncoes();
-        NewTextBox text = new NewTextBox();
+        CalculadoraFuncoes calc = new CalculadoraFuncoes();        
 
         public calculadora() {
             InitializeComponent();
@@ -40,6 +39,17 @@ namespace Calculadora {
         private void btnSubtrair_Click(object sender,EventArgs e) {
             string operacao = calc.Subtrair(float.Parse(txtInputNumeros.Text));
             txtHistOperacoes.Text += operacao;
+        }
+
+        /* TO-DO -> O resultado da operação está aparecendo como último numero no histório ao invés de ir no Input */
+        private void btnIgual_Click(object sender,EventArgs e) {
+            txtHistOperacoes.Text += String.Format("{0} =",txtInputNumeros.Text);
+            string operacao = calc.MostrarResultado(float.Parse(txtInputNumeros.Text));
+            txtInputNumeros.Text += operacao;
+        }
+
+        private void btnNegar_Click(object sender,EventArgs e) {
+            txtInputNumeros.Text = calc.Negar(float.Parse(txtInputNumeros.Text));
         }
 
         private void btnLimparAtual_Click(object sender,EventArgs e) {
@@ -94,16 +104,7 @@ namespace Calculadora {
 
         private void btnVirgula_Click(object sender,EventArgs e) {
             txtInputNumeros.Text += ",";
-        }
-
-        private void btnIgual_Click(object sender,EventArgs e) {
-            txtHistOperacoes.Text += " =";
-            txtInputNumeros.Text = calc.MostrarResultado();
-        }
-
-        private void btnNegar_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text = calc.Negar(float.Parse(txtInputNumeros.Text));
-        }
+        }        
 
         private void txtHistOperacoes_TextChanged(object sender,EventArgs e) {
 
@@ -133,8 +134,8 @@ namespace Calculadora {
             }
 
             if(keyData == Keys.Enter) {
-                txtHistOperacoes.Text += " =";
-                txtInputNumeros.Text = calc.MostrarResultado();
+                string operacao = calc.MostrarResultado(float.Parse(txtInputNumeros.Text));
+                txtHistOperacoes.Text += operacao;
                 return true;
             }
 
@@ -148,13 +149,7 @@ namespace Calculadora {
                 string operacao = calc.Multiplicar(float.Parse(txtInputNumeros.Text));
                 txtHistOperacoes.Text += operacao;
                 return true;
-            }
-
-            if(keyData == Keys.Enter) {
-                txtHistOperacoes.Text += " =";
-                txtInputNumeros.Text = calc.MostrarResultado();
-                return true;
-            }
+            }            
 
             if(keyData == Keys.D0 || keyData == Keys.NumPad0) {
                 txtInputNumeros.Text += "0";
