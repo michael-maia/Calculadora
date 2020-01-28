@@ -45,7 +45,7 @@ namespace Calculadora {
         private void btnIgual_Click(object sender,EventArgs e) {
             txtHistOperacoes.Text += String.Format("{0} =",txtInputNumeros.Text);
             string operacao = calc.MostrarResultado(float.Parse(txtInputNumeros.Text));
-            txtInputNumeros.Text += operacao;
+            txtInputNumeros.Text = operacao;
         }
 
         private void btnNegar_Click(object sender,EventArgs e) {
@@ -127,76 +127,77 @@ namespace Calculadora {
                  return true;
             }
 
-            if(keyData == Keys.Subtract) {
+            else if(keyData == Keys.Subtract) {
                 string operacao = calc.Subtrair(float.Parse(txtInputNumeros.Text));
                 txtHistOperacoes.Text += operacao;
                 return true;
             }
 
-            if(keyData == Keys.Enter) {
+            else if(keyData == Keys.Enter) {
+                txtHistOperacoes.Text += String.Format("{0} =",txtInputNumeros.Text);
                 string operacao = calc.MostrarResultado(float.Parse(txtInputNumeros.Text));
-                txtHistOperacoes.Text += operacao;
+                txtInputNumeros.Text = operacao;
                 return true;
             }
 
-            if(keyData == Keys.Add) {
+            else if(keyData == Keys.Add) {
                 string operacao = calc.Somar(float.Parse(txtInputNumeros.Text));
                 txtHistOperacoes.Text += operacao;
                 return true;
             }
 
-            if(keyData == Keys.Multiply) {
+            else if(keyData == Keys.Multiply) {
                 string operacao = calc.Multiplicar(float.Parse(txtInputNumeros.Text));
                 txtHistOperacoes.Text += operacao;
                 return true;
-            }            
+            }
 
-            if(keyData == Keys.D0 || keyData == Keys.NumPad0) {
+            else if(keyData == Keys.D0 || keyData == Keys.NumPad0) {
                 txtInputNumeros.Text += "0";
                 return true;
             }
 
-            if(keyData == Keys.D1 || keyData == Keys.NumPad1) {
+            else if(keyData == Keys.D1 || keyData == Keys.NumPad1) {
                 txtInputNumeros.Text += "1";
                 return true;
             }
 
-            if(keyData == Keys.D2 || keyData == Keys.NumPad2) {
+            else if(keyData == Keys.D2 || keyData == Keys.NumPad2) {
                 txtInputNumeros.Text += "2";
                 return true;
             }
 
-            if(keyData == Keys.D3 || keyData == Keys.NumPad3) {
+            else if(keyData == Keys.D3 || keyData == Keys.NumPad3) {
                 txtInputNumeros.Text += "3";
                 return true;
             }
 
-            if(keyData == Keys.D4 || keyData == Keys.NumPad4) {
+            else if(keyData == Keys.D4 || keyData == Keys.NumPad4) {
                 txtInputNumeros.Text += "4";
                 return true;
             }
 
-            if(keyData == Keys.D5 || keyData == Keys.NumPad5) {
+            else if(keyData == Keys.D5 || keyData == Keys.NumPad5) {
                 txtInputNumeros.Text += "5";
                 return true;
             }
 
-            if(keyData == Keys.D6 || keyData == Keys.NumPad6) {
+            else if(keyData == Keys.D6 || keyData == Keys.NumPad6) {
                 txtInputNumeros.Text += "6";
                 return true;
             }
 
-            if(keyData == Keys.D7 || keyData == Keys.NumPad7) {
+            else if(keyData == Keys.D7 || keyData == Keys.NumPad7) {
                 txtInputNumeros.Text += "7";
                 return true;
             }
 
-            if(keyData == Keys.D8 || keyData == Keys.NumPad8) {
+            else if(keyData == Keys.D8 || keyData == Keys.NumPad8) {
                 txtInputNumeros.Text += "8";
                 return true;
             }
 
-            if(keyData == Keys.D9 || keyData == Keys.NumPad9) {
+            else if(keyData == Keys.D9 || keyData == Keys.NumPad9) {
                 txtInputNumeros.Text += "9";
                 return true;
             }
