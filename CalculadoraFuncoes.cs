@@ -38,7 +38,7 @@ namespace Calculadora {
                 this.tipoCalculo = 2;
             }
             string resultado = Convert.ToString(input);
-            return String.Format("{0} - ",resultado);
+            return String.Format("{0}  - ",resultado); //Este espaço extra no String.Format é necessário pois um dos espaços é ignorado no programa
         }
 
         public string Multiplicar(float input) {
