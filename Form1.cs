@@ -2,18 +2,17 @@
 using System.Windows.Forms;
 
 namespace Calculadora {
-    public partial class calculadora : Form {
-        /*
-         * TO-DO: Olhar no ToDo App da Microsoft         
-         */
+    public partial class calculadora : Form {        
 
         // Linkando a classe onde estão as funções matemáticas
-        CalculadoraFuncoes calc = new CalculadoraFuncoes();        
+        CalculadoraFuncoes calc = new CalculadoraFuncoes();
+        bool textReplacer = true;
+        bool novaOperacao = false;
 
         public calculadora() {
             InitializeComponent();
             txtInputNumeros.KeyPress += (sender,e) => e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
-            //txtInputNumeros.Enabled = false;
+            txtInputNumeros.Enabled = false;           
         }        
 
         //Função que executa o código ao iniciar o formulário
@@ -24,28 +23,33 @@ namespace Calculadora {
         private void btnDividir_Click(object sender,EventArgs e) {
             string operacao = calc.Dividir(float.Parse(txtInputNumeros.Text));
             txtHistOperacoes.Text += operacao;
+            textReplacer = true;
         }
 
         private void btnSomar_Click(object sender,EventArgs e) {            
             string operacao = calc.Somar(float.Parse(txtInputNumeros.Text));
-            txtHistOperacoes.Text += operacao;    
+            txtHistOperacoes.Text += operacao;
+            textReplacer = true;
         }
 
         private void btnMultiplicar_Click(object sender,EventArgs e) {
             string operacao = calc.Multiplicar(float.Parse(txtInputNumeros.Text));
             txtHistOperacoes.Text += operacao;
+            textReplacer = true;
         }
 
         private void btnSubtrair_Click(object sender,EventArgs e) {
             string operacao = calc.Subtrair(float.Parse(txtInputNumeros.Text));
             txtHistOperacoes.Text += operacao;
+            textReplacer = true;
         }
-
-        /* TO-DO -> O resultado da operação está aparecendo como último numero no histório ao invés de ir no Input */
+        
         private void btnIgual_Click(object sender,EventArgs e) {
             txtHistOperacoes.Text += String.Format("{0} =",txtInputNumeros.Text);
             string operacao = calc.MostrarResultado(float.Parse(txtInputNumeros.Text));
             txtInputNumeros.Text = operacao;
+            textReplacer = true;
+            novaOperacao = true;
         }
 
         private void btnNegar_Click(object sender,EventArgs e) {
@@ -63,47 +67,112 @@ namespace Calculadora {
         }
 
         private void btnUm_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "1";
+            if(novaOperacao == true) {
+                txtHistOperacoes.Text = "";
+                novaOperacao = false;
+            }
+
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "1";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "1";
+            }           
         }
 
         private void btnDois_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "2";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "2";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "2";
+            }
         }
 
         private void btnTres_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "3";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "3";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "3";
+            }
         }
 
         private void btnQuatro_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "4";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "4";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "4";
+            }
         }
 
         private void btnCinco_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "5";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "5";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "5";
+            }
         }
 
         private void btnSeis_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "6";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "6";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "6";
+            }
         }
 
         private void btnSete_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "7";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "7";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "7";
+            }
         }
 
         private void btnOito_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "8";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "8";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "8";
+            }
         }
 
         private void btnNove_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "9";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "9";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "9";
+            }
         }
 
         private void btnZero_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += "0";
+            if(textReplacer == true) {
+                txtInputNumeros.Text = "0";
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += "0";
+            }
         }
 
         private void btnVirgula_Click(object sender,EventArgs e) {
-            txtInputNumeros.Text += ",";
+            txtInputNumeros.Text += ",";            
         }        
 
         private void txtHistOperacoes_TextChanged(object sender,EventArgs e) {
@@ -116,89 +185,98 @@ namespace Calculadora {
 
         private void txtInputNumeros_TextChanged(object sender,EventArgs e) {
 
+        }        
+        private void txtInputNumeros_LostFocus(object sender,EventArgs e) {
+            if(txtInputNumeros.Text == "") {
+                txtInputNumeros.Text = "0";
+            }
+            else {
+                // Cria uma máscara que diferencia as centenas e milhares
+                txtInputNumeros.Text = string.Format("{0:#,##0.00}",double.Parse(txtInputNumeros.Text)); 
+            }
         }
+        
 
         // ------------------------------------------------------------------------------------------
         // Função que altera o que a tecla do teclado vai fazer ao ser pressionada
         protected override bool ProcessCmdKey(ref Message msg,Keys keyData) {
             if(keyData == Keys.Divide) {
-                 string operacao = calc.Dividir(float.Parse(txtInputNumeros.Text));
-                 txtHistOperacoes.Text += operacao;
-                 return true;
+                btnDividir.PerformClick();                
+                return true;
+            }
+            // TO-DO : O botão BACKSPACE deve remover o último char da string do txtInputNumeros.Text 
+            else if(keyData == Keys.Back) {
+                var text = txtInputNumeros.Text;
+                txtInputNumeros.Text.Remove(text.Length - 1);
             }
 
             else if(keyData == Keys.Subtract) {
-                string operacao = calc.Subtrair(float.Parse(txtInputNumeros.Text));
-                txtHistOperacoes.Text += operacao;
+                btnSubtrair.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.Enter) {
-                txtHistOperacoes.Text += String.Format("{0} =",txtInputNumeros.Text);
-                string operacao = calc.MostrarResultado(float.Parse(txtInputNumeros.Text));
-                txtInputNumeros.Text = operacao;
+                btnIgual.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.Add) {
-                string operacao = calc.Somar(float.Parse(txtInputNumeros.Text));
-                txtHistOperacoes.Text += operacao;
+                btnSomar.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.Multiply) {
-                string operacao = calc.Multiplicar(float.Parse(txtInputNumeros.Text));
-                txtHistOperacoes.Text += operacao;
+                btnMultiplicar.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D0 || keyData == Keys.NumPad0) {
-                txtInputNumeros.Text += "0";
+                btnZero.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D1 || keyData == Keys.NumPad1) {
-                txtInputNumeros.Text += "1";
+                btnUm.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D2 || keyData == Keys.NumPad2) {
-                txtInputNumeros.Text += "2";
+                btnDois.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D3 || keyData == Keys.NumPad3) {
-                txtInputNumeros.Text += "3";
+                btnTres.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D4 || keyData == Keys.NumPad4) {
-                txtInputNumeros.Text += "4";
+                btnQuatro.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D5 || keyData == Keys.NumPad5) {
-                txtInputNumeros.Text += "5";
+                btnCinco.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D6 || keyData == Keys.NumPad6) {
-                txtInputNumeros.Text += "6";
+                btnSeis.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D7 || keyData == Keys.NumPad7) {
-                txtInputNumeros.Text += "7";
+                btnSete.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D8 || keyData == Keys.NumPad8) {
-                txtInputNumeros.Text += "8";
+                btnOito.PerformClick();
                 return true;
             }
 
             else if(keyData == Keys.D9 || keyData == Keys.NumPad9) {
-                txtInputNumeros.Text += "9";
+                btnNove.PerformClick();
                 return true;
             }
 

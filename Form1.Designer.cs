@@ -128,6 +128,7 @@
             this.txtInputNumeros.Text = "0";
             this.txtInputNumeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtInputNumeros.TextChanged += new System.EventHandler(this.txtInputNumeros_TextChanged);
+            this.txtInputNumeros.Leave += new System.EventHandler(this.txtInputNumeros_LostFocus);
             // 
             // btnPercentagem
             // 
