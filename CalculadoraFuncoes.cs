@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 // TRANSFORMAR EM UMA BIBLIOTECA ESTE ARQUIVO
 namespace Calculadora {
     public class CalculadoraFuncoes {
-        //Atributos
+        //Atributos        
         private float somatorio = 0;
         private int tipoCalculo = 0; // Um numero inteiro que vai determinar qual foi a última operação usada
         bool primeiroInput = true; // O primeiro input sempre será uma soma à variável somatorio        
@@ -61,12 +61,17 @@ namespace Calculadora {
                 this.primeiroInput = false;
                 this.tipoCalculo = 4;
             }
+            /* PROBLEMA #14 */
+            if(input == 0){
+                return "Não é possível dividir por zero";
+            }
             else{
                 CalculoMatematico(input);
                 this.tipoCalculo = 4;
+                string resultado = Convert.ToString(input);
+                return String.Format("{0} ÷ ",resultado);
             }
-            string resultado = Convert.ToString(input);
-            return String.Format("{0} ÷ ",resultado);
+            
         }
 
         public void CalculoMatematico(float input) {
@@ -102,6 +107,6 @@ namespace Calculadora {
             input *= -1;
             string resultado = Convert.ToString(input);
             return resultado;
-        }
+        }        
     }
 }

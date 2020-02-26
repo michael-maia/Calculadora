@@ -5,7 +5,8 @@ namespace Calculadora {
     public partial class calculadora : Form {        
 
         // Linkando a classe onde estão as funções matemáticas
-        CalculadoraFuncoes calc = new CalculadoraFuncoes();
+        CalculadoraFuncoes calc = new CalculadoraFuncoes();        
+
         bool textReplacer = true;
         bool novaOperacao = false;
 
@@ -19,7 +20,16 @@ namespace Calculadora {
         private void calculadora_Load(object sender,EventArgs e) {
 
         }       
-
+        /* COMENTÁRIOS:
+         * Os botões que realizam as operações matemáticas básicas funcionam da seguinte maneira:
+         * A string que está no txtInputNumeros é convertida para Float e enviada como parâmetro
+         * para sua respectiva função (cada botão tem sua função) e a função retorna uma string formatada
+         * para ser concatenada e mostrada no txtHistOperacoes para mantermos registrado 
+         * quais cálculos matemáticos foram realizados.
+         * Após mostrar, a variável Booleana textReplacer vira True para que o próximo valor que for digitado
+         * vai automaticamente substituir o conteúdo do txtInputNumeros para evitar que seja necessário
+         * deletar o antigo valor toda vez.
+         */
         private void btnDividir_Click(object sender,EventArgs e) {
             string operacao = calc.Dividir(float.Parse(txtInputNumeros.Text));
             txtHistOperacoes.Text += operacao;
@@ -43,7 +53,17 @@ namespace Calculadora {
             txtHistOperacoes.Text += operacao;
             textReplacer = true;
         }
-        
+        /* COMENTÁRIOS
+         * Primeiramente é concatenado no histórico uma string formatada para mostrar que o sinal
+         * de igualdade no cálculo, em seguida o valor que está no txtInputNumeros é enviado para a função
+         * MostrarResultado() como parâmetro, convertido para Float, e é retornado o valor total de todas as operações
+         * realizadas no cálculo atual que será atribuído ao txtInputNumeros.
+         * Após mostrar, a variável Booleana textReplacer vira True para que o próximo valor que for digitado
+         * vai automaticamente substituir o conteúdo do txtInputNumeros para evitar que seja necessário
+         * deletar o antigo valor toda vez.
+         * E a varíavel novaOperacao vira True, indicando que o primeiro valor sempre será adicionado ao somatório total
+         * para ser iniciado o cálculo matemático.
+         */
         private void btnIgual_Click(object sender,EventArgs e) {
             txtHistOperacoes.Text += String.Format("{0} =",txtInputNumeros.Text);
             string operacao = calc.MostrarResultado(float.Parse(txtInputNumeros.Text));
@@ -65,110 +85,63 @@ namespace Calculadora {
             txtHistOperacoes.Text = "";
             txtInputNumeros.Text = "";
         }
-
+        /* COMENTÁRIOS:
+         * Todos os botões que representam os números de 0-9 funcionam da seguinte forma:
+         * Primeiro é verificado se a variável novaOperacao é True pois caso seja, conforme 
+         * explicado no comentário anterior, o histórico é zerado para mostrarmos as novas operações
+         * que vão ser realizadas e a variável volta a ser False para não impactar os outros números.
+         * Em seguida checamos se o textReplacer é True ou False, caso seja True o txtInputNumeros.Text 
+         * é substituído pelo pelo char que representa o número do botão e dai ele volta ser False, caso
+         * contrário, o char é concatenado ao campo referente à entrada de valores na Calculadora.
+         */
         private void btnUm_Click(object sender,EventArgs e) {
-            if(novaOperacao == true) {
-                txtHistOperacoes.Text = "";
-                novaOperacao = false;
-            }
-
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "1";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "1";
-            }           
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"1");                       
         }
 
         private void btnDois_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "2";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "2";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"2");
         }
 
         private void btnTres_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "3";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "3";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"3");
         }
 
         private void btnQuatro_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "4";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "4";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"4");
         }
 
         private void btnCinco_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "5";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "5";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"5");
         }
 
         private void btnSeis_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "6";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "6";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"6");
         }
 
         private void btnSete_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "7";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "7";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"7");
         }
 
         private void btnOito_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "8";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "8";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"8");
         }
 
         private void btnNove_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "9";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "9";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"9");
         }
 
         private void btnZero_Click(object sender,EventArgs e) {
-            if(textReplacer == true) {
-                txtInputNumeros.Text = "0";
-                textReplacer = false;
-            }
-            else {
-                txtInputNumeros.Text += "0";
-            }
+            NovaOperacao(novaOperacao);
+            TextReplacer(textReplacer,"0");
         }
 
         private void btnVirgula_Click(object sender,EventArgs e) {
@@ -176,7 +149,15 @@ namespace Calculadora {
         }        
 
         private void txtHistOperacoes_TextChanged(object sender,EventArgs e) {
-
+            // Aqui faz com que ao invés de ficar um campo vazio quando todos os números forem apagados
+            // vai ficar o número zero            
+            if(txtInputNumeros.Text == "") {
+                txtInputNumeros.Text = "0";
+            }
+            else {
+                // Cria uma máscara que diferencia as centenas e milhares
+                txtInputNumeros.Text = string.Format("{0:#,##0.00}",double.Parse(txtInputNumeros.Text));
+            }
         }       
 
         private void tipoToolStripMenuItem_Click(object sender,EventArgs e) {
@@ -185,17 +166,28 @@ namespace Calculadora {
 
         private void txtInputNumeros_TextChanged(object sender,EventArgs e) {
 
-        }        
-        private void txtInputNumeros_LostFocus(object sender,EventArgs e) {
-            if(txtInputNumeros.Text == "") {
-                txtInputNumeros.Text = "0";
-            }
-            else {
-                // Cria uma máscara que diferencia as centenas e milhares
-                txtInputNumeros.Text = string.Format("{0:#,##0.00}",double.Parse(txtInputNumeros.Text)); 
-            }
         }
         
+        private void txtInputNumeros_LostFocus(object sender,EventArgs e) {            
+            
+        }
+
+        private void NovaOperacao(bool input) {
+            if(input == true) {
+                txtHistOperacoes.Text = "";
+                novaOperacao = false;
+            }
+        }
+
+        private void TextReplacer(bool input, string numero) {
+            if(input == true) {
+                txtInputNumeros.Text = numero;
+                textReplacer = false;
+            }
+            else {
+                txtInputNumeros.Text += numero;
+            }
+        }
 
         // ------------------------------------------------------------------------------------------
         // Função que altera o que a tecla do teclado vai fazer ao ser pressionada
@@ -239,6 +231,8 @@ namespace Calculadora {
             else if(keyData == Keys.D8 || keyData == Keys.NumPad8) { btnOito.PerformClick(); return true; }
 
             else if(keyData == Keys.D9 || keyData == Keys.NumPad9) { btnNove.PerformClick(); return true; }
+
+            else if(keyData == Keys.Oemcomma || keyData == Keys.Decimal) { btnVirgula.PerformClick(); return true; }
 
             return base.ProcessCmdKey(ref msg,keyData);
         }        

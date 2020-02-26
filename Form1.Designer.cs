@@ -510,9 +510,9 @@
         private System.Windows.Forms.Button btnSeis;
         private System.Windows.Forms.Button btnNove;
         private System.Windows.Forms.Button btnIgual;
-        private System.Windows.Forms.Button btnSomar;
         private System.Windows.Forms.Button btnSubtrair;
         private System.Windows.Forms.Button btnMultiplicar;
+        private System.Windows.Forms.Button btnSomar;
     }
 }
 
