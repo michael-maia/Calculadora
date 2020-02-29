@@ -12,11 +12,12 @@ namespace Calculadora {
 
         public calculadora() {
             InitializeComponent();
+            // Evita que letras e caracteres especiais sejam usados
             txtInputNumeros.KeyPress += (sender,e) => e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
             txtInputNumeros.Enabled = false;           
         }        
 
-        //Função que executa o código ao iniciar o formulário
+        // Função que executa o código ao iniciar o formulário
         private void calculadora_Load(object sender,EventArgs e) {
 
         }       
@@ -32,26 +33,22 @@ namespace Calculadora {
          */
         private void btnDividir_Click(object sender,EventArgs e) {
             string operacao = calc.Dividir(float.Parse(txtInputNumeros.Text));
-            txtHistOperacoes.Text += operacao;
-            textReplacer = true;
+            HistoricoUpdate(operacao);
         }
 
         private void btnSomar_Click(object sender,EventArgs e) {            
             string operacao = calc.Somar(float.Parse(txtInputNumeros.Text));
-            txtHistOperacoes.Text += operacao;
-            textReplacer = true;
+            HistoricoUpdate(operacao);
         }
 
         private void btnMultiplicar_Click(object sender,EventArgs e) {
             string operacao = calc.Multiplicar(float.Parse(txtInputNumeros.Text));
-            txtHistOperacoes.Text += operacao;
-            textReplacer = true;
+            HistoricoUpdate(operacao);
         }
 
         private void btnSubtrair_Click(object sender,EventArgs e) {
             string operacao = calc.Subtrair(float.Parse(txtInputNumeros.Text));
-            txtHistOperacoes.Text += operacao;
-            textReplacer = true;
+            HistoricoUpdate(operacao);
         }
         /* COMENTÁRIOS
          * Primeiramente é concatenado no histórico uma string formatada para mostrar que o sinal
@@ -67,8 +64,7 @@ namespace Calculadora {
         private void btnIgual_Click(object sender,EventArgs e) {
             txtHistOperacoes.Text += String.Format("{0} =",txtInputNumeros.Text);
             string operacao = calc.MostrarResultado(float.Parse(txtInputNumeros.Text));
-            txtInputNumeros.Text = operacao;
-            textReplacer = true;
+            HistoricoUpdate(operacao);
             novaOperacao = true;
         }
 
@@ -172,6 +168,9 @@ namespace Calculadora {
             
         }
 
+        // ------------------------------------------------------------------------------------------
+        // Funções criadas para diminuir a repetição de algoritmos
+
         private void NovaOperacao(bool input) {
             if(input == true) {
                 txtHistOperacoes.Text = "";
@@ -187,6 +186,11 @@ namespace Calculadora {
             else {
                 txtInputNumeros.Text += numero;
             }
+        }
+
+        public void HistoricoUpdate(string input) {
+            txtHistOperacoes.Text += input;
+            textReplacer = true;
         }
 
         // ------------------------------------------------------------------------------------------
